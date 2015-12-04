@@ -1,36 +1,45 @@
 # EnvEnforcer
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/env_enforcer`. To experiment with that code, run `bin/console` for an interactive prompt.
+Enforce environment variable requirements.
 
-TODO: Delete this and the text above, and describe your gem
+Storing [configuration in the environment](http://www.12factor.net/config) is one of the tenets of a [twelve-factor app](http://www.12factor.net/). However, problems arise when required environment variables aren't set.
 
 ## Installation
+
+### Rails
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'env-enforcer'
+gem 'env_enforcer'
 ```
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install env-enforcer
-
 ## Usage
 
-TODO: Write usage instructions here
+Add your required ENV keys to `.env_enforcer.yml`:
 
-## Development
+```shell
+default:
+- REQUIRED_KEY
+development:
+- DEVELOPMENT_KEY
+production:
+- PRODUCTION_KEY
+test:
+- TEST_KEY
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake false` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+When the app starts, `env_enforcer` will check that all the required environment variables for the current Rails environment are set, and raise an error if they are not.
 
 ## Contributing
+We welcome pull requests. Please make sure tests accompany any PRs.
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/env_enforcer.
+---
 
+Curated by the good people at MojoTech.
+
+<a href="http://mojotech.com"><img width="140px" src="https://mojotech.github.io/jeet/img/mojotech-logo.svg" title="MojoTech's Hiring"></a> <sup>(psst, [we're hiring](http://www.mojotech.com/jobs))</sup>
