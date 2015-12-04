@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "env_enforcer"
   spec.version       = EnvEnforcer::VERSION
   spec.authors       = ["Adam Steel", "Joel Hawksley"]
-  spec.email         = ["adamgsteel@gmail.com", "joel@mojotech.com"]
+  spec.email         = ["adamgsteel@gmail.com", "joel@hawksley.org"]
 
   spec.summary       = %q{Enforce ENV key definition in your apps.}
   spec.description   = %q{env-enforcer allows you to list your required ENV variables, and checks for their presence when your app is started.}
