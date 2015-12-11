@@ -33,7 +33,7 @@ module EnvEnforcer
     end
 
     def defined_keys
-      ENV.keys.map(&:to_s)
+      ENV.keys
     end
 
     def default_keys
