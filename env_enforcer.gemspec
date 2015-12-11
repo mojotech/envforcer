@@ -15,11 +15,8 @@ Gem::Specification.new do |spec|
     'and checks for their presence when your app is started.'
   spec.homepage      = 'https://www.github.com/mojotech/env-enforcer'
 
-  spec.files         =
-    `git ls-files -z`.
-    split('\x0').
-    reject { |f| f.match(/^(test|spec|features)/) }
-  spec.bindir        = 'exe'
+  spec.files         = `git ls-files app lib`.split('\n')
+  spec.platform      = Gem::Platform::RUBY
   spec.require_paths = ['lib']
 
   spec.add_dependency 'rspec'
