@@ -35,7 +35,7 @@ test:
 - TEST_KEY
 ```
 
-When the app starts, `env_enforcer` will check that all the required environment variables for the current Rails environment are set, and raise an error if they are not.
+When the app starts, `env_enforcer` will check that all the required environment variables for the current Rails environment are set, and raise an error if they are not. On Heroku, this will prevent the app from deploying.
 
 ## Contributing
 We welcome pull requests. Please make sure tests accompany any PRs.
