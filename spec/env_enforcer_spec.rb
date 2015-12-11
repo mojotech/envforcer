@@ -4,7 +4,7 @@ describe EnvEnforcer do
   context 'given all the required keys are defined' do
     GivenConstant do
       ENV = {
-        REQUIRED_KEY: 'required',
+        REQUIRED_KEY: 'required'
       }
     end
 
@@ -19,7 +19,9 @@ describe EnvEnforcer do
     end
 
     it 'fails' do
-      expect { EnvEnforcer.call }.to raise_error(MissingEnvKey, "Missing 1 ENV key(s): REQUIRED_KEY")
+      expect { EnvEnforcer.call }.to raise_error(
+        MissingEnvKey, 'Missing 1 ENV key(s): REQUIRED_KEY'
+      )
     end
   end
 

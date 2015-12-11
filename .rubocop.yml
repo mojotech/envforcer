@@ -1,0 +1,9 @@
+Documentation:
+  Enabled: false
+
+Style/DotPosition:
+  EnforcedStyle: 'trailing'
+  Enabled: true
+
+Style/MethodName:
+  Enabled: false

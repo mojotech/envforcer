@@ -1,4 +1,4 @@
-require "env_enforcer/version"
+require 'env_enforcer/version'
 require 'yaml'
 require 'rails'
 
@@ -8,7 +8,7 @@ module EnvEnforcer
   class << self
     def call
       # handle missing config file
-      raise MissingEnvKey, error_message if missing_keys.size > 0
+      fail MissingEnvKey, error_message if missing_keys.size > 0
     end
 
     private def error_message
@@ -17,10 +17,10 @@ module EnvEnforcer
 
     private def config_file
       @config_file ||=
-        if File.exists?('.env_enforcer.yml')
+        if File.exist?('.env_enforcer.yml')
           YAML.load_file('.env_enforcer.yml')
         else
-          fail "No .env_enforcer.yml file found."
+          fail 'No .env_enforcer.yml file found.'
         end
     end
 
@@ -41,7 +41,7 @@ module EnvEnforcer
     end
 
     private def missing_keys
-      missing_keys = (required_keys - defined_keys)
+      required_keys - defined_keys
     end
   end
 
