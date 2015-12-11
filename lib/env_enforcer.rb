@@ -1,6 +1,6 @@
 require "env_enforcer/version"
 require 'yaml'
-require 'pry'
+require 'rails'
 
 class MissingEnvKey < StandardError; end
 
