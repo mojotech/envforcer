@@ -11,11 +11,13 @@ module EnvEnforcer
       fail MissingEnvKey, error_message if missing_keys.size > 0
     end
 
-    private def error_message
+    private
+
+    def error_message
       "Missing #{missing_keys.size} ENV key(s): #{missing_keys.join(',')}"
     end
 
-    private def config_file
+    def config_file
       path = root.join('.env_enforcer.yml')
 
       @config_file ||=
@@ -26,27 +28,27 @@ module EnvEnforcer
         end
     end
 
-    private def root
+    def root
       Rails.root || Pathname.new(ENV['RAILS_ROOT'] || Dir.pwd)
     end
 
-    private def defined_keys
+    def defined_keys
       ENV.keys.map(&:to_s)
     end
 
-    private def default_keys
+    def default_keys
       config_file['default'] || []
     end
 
-    private def environment_keys
+    def environment_keys
       config_file[ENV['RAILS_ENV']] || []
     end
 
-    private def required_keys
+    def required_keys
       (default_keys + environment_keys).compact
     end
 
-    private def missing_keys
+    def missing_keys
       required_keys - defined_keys
     end
   end
