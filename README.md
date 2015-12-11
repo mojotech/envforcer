@@ -1,3 +1,5 @@
+![Build status](https://travis-ci.org/mojotech/env-enforcer.svg)
+
 # EnvEnforcer
 
 Enforce environment variable requirements.
