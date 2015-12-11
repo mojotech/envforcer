@@ -1,4 +1,4 @@
-require 'env_enforcer/version'
+require 'envforcer/version'
 require 'yaml'
 require 'rails'
 
@@ -18,13 +18,13 @@ module EnvEnforcer
     end
 
     def config_file
-      path = root.join('.env_enforcer.yml')
+      path = root.join('.envforcer.yml')
 
       @config_file ||=
         if File.exist?(path)
           YAML.load_file(path)
         else
-          fail 'No .env_enforcer.yml file found.'
+          fail 'No .envforcer.yml file found.'
         end
     end
 

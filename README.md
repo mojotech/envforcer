@@ -1,6 +1,6 @@
 ![Build status](https://travis-ci.org/mojotech/env-enforcer.svg)
 
-# EnvEnforcer
+# Envforcer
 
 Enforce environment variable requirements.
 
@@ -13,7 +13,7 @@ Storing [configuration in the environment](http://www.12factor.net/config) is on
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'env_enforcer'
+gem 'envforcer'
 ```
 
 And then execute:
@@ -22,7 +22,7 @@ And then execute:
 
 ## Usage
 
-Add your required ENV keys to `.env_enforcer.yml`:
+Add your required ENV keys to `.envforcer.yml`:
 
 ```shell
 default:
@@ -35,7 +35,7 @@ test:
 - TEST_KEY
 ```
 
-When the app starts, `env_enforcer` will check that all the required environment variables for the current Rails environment are set, and raise an error if they are not. On Heroku, this will prevent the app from deploying.
+When the app starts, `envforcer` will check that all the required environment variables for the current Rails environment are set, and raise an error if they are not.
 
 ## Contributing
 We welcome pull requests. Please make sure tests accompany any PRs.
