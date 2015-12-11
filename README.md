@@ -6,20 +6,6 @@ Enforce environment variable requirements.
 
 Storing [configuration in the environment](http://www.12factor.net/config) is one of the tenets of a [twelve-factor app](http://www.12factor.net/). However, problems arise when required environment variables aren't set.
 
-## Installation
-
-### Rails
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'envforcer'
-```
-
-And then execute:
-
-    $ bundle
-
 ## Usage
 
 Add your required ENV keys to `.envforcer.yml`:
@@ -38,6 +24,20 @@ test:
 When the app starts, `envforcer` will check that all the required environment variables for the current Rails environment are set, and raise an error if they are not. This will prevent the app from starting.
 
 > Note: Currently only tested with Heroku. Will cause push to be rejected.
+
+## Installation
+
+### Rails
+
+Add this line to your application's Gemfile:
+
+```ruby
+gem 'envforcer'
+```
+
+And then execute:
+
+    $ bundle
 
 ## Contributing
 We welcome pull requests. Please make sure tests accompany any PRs.
