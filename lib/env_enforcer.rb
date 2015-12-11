@@ -1,6 +1,5 @@
 require "env_enforcer/version"
 require 'yaml'
-require 'pry'
 
 class MissingEnvKey < StandardError; end
 
