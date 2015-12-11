@@ -16,7 +16,12 @@ module EnvEnforcer
     end
 
     private def config_file
-      @config_file ||= YAML.load_file('.env_enforcer.yml')
+      @config_file ||=
+        if File.exists?('.env_enforcer.yml')
+          YAML.load_file('.env_enforcer.yml')
+        else
+          fail "No .env_enforcer.yml file found."
+        end
     end
 
     private def defined_keys
