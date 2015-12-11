@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
     'variables aren\'t set.'
   spec.homepage      = 'https://www.github.com/mojotech/envforcer'
 
-  spec.files         = `git ls-files app lib`.split('\n')
+  spec.files         = `git ls-files app lib`.split("\n")
   spec.platform      = Gem::Platform::RUBY
   spec.require_paths = ['lib']
 
