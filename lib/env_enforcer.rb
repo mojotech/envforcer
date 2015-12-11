@@ -16,12 +16,18 @@ module EnvEnforcer
     end
 
     private def config_file
+      path = root.join('.env_enforcer.yml')
+
       @config_file ||=
-        if File.exist?('.env_enforcer.yml')
-          YAML.load_file('.env_enforcer.yml')
+        if File.exist?(path)
+          YAML.load_file(path)
         else
           fail 'No .env_enforcer.yml file found.'
         end
+    end
+
+    private def root
+      Rails.root || Pathname.new(ENV['RAILS_ROOT'] || Dir.pwd)
     end
 
     private def defined_keys
