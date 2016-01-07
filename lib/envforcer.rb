@@ -6,7 +6,8 @@ class MissingEnvKey < StandardError; end
 
 module EnvEnforcer
   class << self
-    def call
+    def call(env = ENV)
+      @env = env
       # handle missing config file
       fail MissingEnvKey, error_message if missing_keys.size > 0
     end
@@ -33,7 +34,7 @@ module EnvEnforcer
     end
 
     def defined_keys
-      ENV.keys.map(&:to_s)
+      @env.keys.map(&:to_s)
     end
 
     def missing_keys
