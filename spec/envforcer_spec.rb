@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe EnvEnforcer do
-
   describe "#call" do
     it 'remains silent given all the required keys are defined' do
       ruby_env = { REQUIRED_KEY: 'required' }

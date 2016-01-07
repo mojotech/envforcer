@@ -1,6 +1,5 @@
 require 'envforcer/version'
 require 'yaml'
-require 'rails'
 
 class MissingEnvKey < StandardError; end
 
@@ -19,7 +18,7 @@ module EnvEnforcer
     end
 
     def required_keys
-      path = root.join('.envforcer.yml')
+      path = File.expand_path('.envforcer.yml')
 
       @required_keys ||=
         if File.exist?(path)
@@ -29,10 +28,6 @@ module EnvEnforcer
         end
     end
 
-    def root
-      Rails.root || Pathname.new(ENV['RAILS_ROOT'] || Dir.pwd)
-    end
-
     def defined_keys
       @env.keys.map(&:to_s)
     end
@@ -40,9 +35,5 @@ module EnvEnforcer
     def missing_keys
       required_keys - defined_keys
     end
-  end
-
-  class Railtie < ::Rails::Railtie
-    config.after_initialize { EnvEnforcer.call }
   end
 end
