@@ -1,6 +1,1 @@
-default:
 - REQUIRED_KEY
-development:
-- DEVELOPMENT_KEY
-production:
-- PRODUCTION_KEY
