@@ -37,17 +37,4 @@ describe EnvEnforcer do
       expect { EnvEnforcer.call }.not_to raise_error(MissingEnvKey)
     end
   end
-
-  context 'given a rails production environment' do
-    GivenConstant do
-      ENV = {
-        RAILS_ENV: 'production',
-        KEY_ONE: 'my key'
-      }
-    end
-
-    it 'checks for the production key' do
-      expect { EnvEnforcer.call }.to raise_error(MissingEnvKey)
-    end
-  end
 end

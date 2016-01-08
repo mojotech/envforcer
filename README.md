@@ -8,18 +8,13 @@ Storing [configuration in the environment](http://www.12factor.net/config) is on
 
 Add your required ENV keys to `.envforcer.yml`:
 
-```shell
-default:
-- REQUIRED_KEY
-development:
-- DEVELOPMENT_KEY
-production:
-- PRODUCTION_KEY
-test:
-- TEST_KEY
+```yaml
+- REQUIRED_KEY1
+- REQUIRED_KEY2
+- REQUIRED_KEY3
 ```
 
-When the app starts, `envforcer` will check that all the required environment variables for the current Rails environment are set, and raise an error if they are not. This will prevent the app from starting.
+When the app starts, `envforcer` will check that all the required variables are set, and raise an error if they are not. This will prevent the app from starting.
 
 > Note: Currently only tested with Heroku. Will cause push to be rejected.
 

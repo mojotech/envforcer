@@ -17,10 +17,10 @@ module EnvEnforcer
       "Missing #{missing_keys.size} ENV key(s): #{missing_keys.join(',')}"
     end
 
-    def config_file
+    def required_keys
       path = root.join('.envforcer.yml')
 
-      @config_file ||=
+      @required_keys ||=
         if File.exist?(path)
           YAML.load_file(path)
         else
@@ -34,18 +34,6 @@ module EnvEnforcer
 
     def defined_keys
       ENV.keys.map(&:to_s)
-    end
-
-    def default_keys
-      config_file['default'] || []
-    end
-
-    def environment_keys
-      config_file[ENV['RAILS_ENV']] || []
-    end
-
-    def required_keys
-      (default_keys + environment_keys).compact
     end
 
     def missing_keys
