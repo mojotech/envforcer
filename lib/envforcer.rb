@@ -3,7 +3,7 @@ require 'yaml'
 
 class MissingEnvKey < StandardError; end
 
-module EnvEnforcer
+module Envforcer
   class << self
     def call(env = ENV)
       @env = env

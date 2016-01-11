@@ -1,6 +1,6 @@
 require 'envforcer'
 
-module EnvEnforcer
+module Envforcer
   class << self
     def config_file
       path = root.join('.envforcer.yml')
@@ -19,6 +19,6 @@ module EnvEnforcer
   end
 
   class Railtie < ::Rails::Railtie
-    config.after_initialize { EnvEnforcer.call }
+    config.after_initialize { Envforcer.call }
   end
 end
