@@ -25,12 +25,20 @@ When the app starts, `envforcer` will check that all the required variables are 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'envforcer'
+gem 'envforcer', require: 'envforcer-rails'
 ```
 
 And then execute:
 
     $ bundle
+
+### Other Frameworks
+
+At the time you wish to enforce the environment variables, add the line:
+
+```ruby
+Envforcer.call
+```
 
 ## Contributing
 We welcome pull requests. Please make sure tests accompany any PRs.
