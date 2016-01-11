@@ -19,6 +19,6 @@ module Envforcer
   end
 
   class Railtie < ::Rails::Railtie
-    config.after_initialize { RailsEnvironment.new.enforce }
+    config.after_initialize { RailsEnvironment.enforce }
   end
 end

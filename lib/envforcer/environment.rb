@@ -5,6 +5,10 @@ module Envforcer
 
     attr_accessor :source
 
+    def self.enforce
+      new.enforce
+    end
+
     def initialize
       @source = ENV
     end

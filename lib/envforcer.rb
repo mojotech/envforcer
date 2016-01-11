@@ -4,6 +4,6 @@ require 'yaml'
 
 module Envforcer
   def self.call
-    Environment.new.enforce
+    Environment.enforce
   end
 end
