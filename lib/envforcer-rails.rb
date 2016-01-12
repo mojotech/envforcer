@@ -1,0 +1,1 @@
+require 'envforcer/rails'

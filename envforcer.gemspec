@@ -5,7 +5,7 @@ require 'envforcer/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'envforcer'
-  spec.version       = EnvEnforcer::VERSION
+  spec.version       = Envforcer::VERSION
   spec.authors       = ['Adam Steel', 'Joel Hawksley']
   spec.email         = ['adamgsteel@gmail.com', 'joel@hawksley.org']
 
