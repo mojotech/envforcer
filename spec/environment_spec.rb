@@ -2,7 +2,7 @@ require 'spec_helper'
 
 module Envforcer
   describe Environment do
-    describe "#enforce" do
+    describe '#enforce' do
       subject { Environment.new }
 
       it 'remains silent given all the required keys are defined' do

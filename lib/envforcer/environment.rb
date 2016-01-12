@@ -2,7 +2,6 @@ class MissingEnvKey < StandardError; end
 
 module Envforcer
   class Environment
-
     attr_accessor :source
 
     def self.enforce
