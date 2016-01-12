@@ -32,12 +32,14 @@ And then execute:
 
     $ bundle
 
+This will add a Railtie to enforce environment variables `after_initialize`.
+
 ### Other Frameworks
 
 At the time you wish to enforce the environment variables, add the line:
 
 ```ruby
-Envforcer.call
+Envforcer.enforce
 ```
 
 ## Contributing

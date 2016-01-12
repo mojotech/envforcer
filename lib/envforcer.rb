@@ -3,7 +3,7 @@ require 'envforcer/environment'
 require 'yaml'
 
 module Envforcer
-  def self.call
+  def self.enforce
     Environment.enforce
   end
 end
