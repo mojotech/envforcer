@@ -1,8 +1,7 @@
 require 'set'
+require 'envforcer/errors'
 
 module Envforcer
-  class MissingConfigurationFile < StandardError; end
-
   class Keyset < Set
     DEFAULT_CONFIG_FILE = '.envforcer.yml'.freeze
 
@@ -19,14 +18,7 @@ module Envforcer
     def self.load_file(path)
       YAML.load_file(path)
     rescue Errno::ENOENT
-      raise MissingConfigurationFile, <<-MSG
-No Envforcer configuration file was found - #{path}
-Add your required ENV keys to #{path}:
-
-- REQUIRED_KEY1
-- REQUIRED_KEY2
-- REQUIRED_KEY3
-MSG
+      raise MissingConfigurationFile.new(path)
     end
   end
 end

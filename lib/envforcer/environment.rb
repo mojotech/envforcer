@@ -1,4 +1,4 @@
-class MissingEnvKey < StandardError; end
+require 'envforcer/errors'
 
 module Envforcer
   class Environment
@@ -12,7 +12,7 @@ module Envforcer
     end
 
     def enforce
-      fail MissingEnvKey, error_message unless all_required_keys_present?
+      fail MissingEnvKey.new(missing_keys) unless all_required_keys_present?
     end
 
     private
@@ -23,10 +23,6 @@ module Envforcer
 
     def missing_keys
       @required.difference(@env).to_a
-    end
-
-    def error_message
-      "Missing #{missing_keys.size} ENV key(s): #{missing_keys.join(',')}"
     end
   end
 end

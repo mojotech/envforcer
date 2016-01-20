@@ -19,6 +19,20 @@ module Envforcer
         test_keys = %w( FIRST_KEY SECOND_KEY )
         expect(subject.to_a).to eq test_keys
       end
+
+      it 'raises an error with helpful text if the file cannot be found' do
+        expected_msg = <<-MSG.gsub(/^\s+/, '')
+          No Envforcer configuration file was found - /Users/micah/Code/envforcer/missing_file
+          Add your required ENV keys to /Users/micah/Code/envforcer/missing_file:
+          - REQUIRED_KEY1
+          - REQUIRED_KEY2
+          - REQUIRED_KEY3
+        MSG
+
+        expect { described_class.from_config('missing_file') }.to raise_error(
+          MissingConfigurationFile, expected_msg
+        )
+      end
     end
 
     describe '#subset?' do
