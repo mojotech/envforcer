@@ -1,4 +1,4 @@
-# Envforcer
+# Envforcer [![Build Status](https://travis-ci.org/mojotech/envforcer.svg?branch=master)](https://travis-ci.org/mojotech/envforcer) [![Gem Version](https://badge.fury.io/rb/envforcer.svg)](https://badge.fury.io/rb/envforcer)
 
 Enforce environment variable requirements.
 
