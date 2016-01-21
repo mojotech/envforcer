@@ -25,13 +25,9 @@ module Envforcer
 
     def required_keys
       path = File.expand_path('.envforcer.yml')
+      fail 'No .envforcer.yml file found.' unless File.exist?(path)
 
-      @required_keys ||=
-        if File.exist?(path)
-          YAML.load_file(path)
-        else
-          fail 'No .envforcer.yml file found.'
-        end
+      @required_keys ||= YAML.load_file(path)
     end
 
     def defined_keys
