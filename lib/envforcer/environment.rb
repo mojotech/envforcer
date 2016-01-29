@@ -1,6 +1,9 @@
 class MissingEnvKey < StandardError; end
+class UndefinedEnvKey < StandardError; end
 
 module Envforcer
+  CONFIG_FILE = '.envforcer.yml'.freeze
+
   class Environment
     attr_accessor :source
 
@@ -15,6 +18,8 @@ module Envforcer
     def enforce
       # handle missing config file
       fail MissingEnvKey, error_message if missing_keys.size > 0
+
+      GuardENV.call(required_keys)
     end
 
     private
@@ -24,7 +29,7 @@ module Envforcer
     end
 
     def required_keys
-      path = File.expand_path('.envforcer.yml')
+      path = File.expand_path(CONFIG_FILE)
       fail 'No .envforcer.yml file found.' unless File.exist?(path)
 
       @required_keys ||= YAML.load_file(path)
