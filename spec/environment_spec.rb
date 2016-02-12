@@ -3,7 +3,7 @@ require 'spec_helper'
 module Envforcer
   describe Environment do
     describe '#enforce' do
-      subject { Environment.new }
+      subject { Environment.new('spec/fixtures/test_config.yml') }
 
       it 'remains silent given all the required keys are defined' do
         subject.source = { REQUIRED_KEY: 'required' }
